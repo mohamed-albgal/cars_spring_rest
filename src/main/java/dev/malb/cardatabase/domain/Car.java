@@ -16,7 +16,7 @@ public class Car {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="owner")
     private Owner owner;
-
+    public Car() { }
     public Car(String brand, String model, String color, String registerNumber, int year, int price, Owner owner){
         super();
         this.brand = brand;
@@ -31,9 +31,7 @@ public class Car {
     // why this is needed:
     // Because it often happens that the JPA provider has to instantiate your domain object dynamically.
     // It cannot do so, unless there is a no-arg constructor - it can't guess what the arguments should be.
-    public Car() {
 
-    }
 
     public String getBrand() {
         return brand;
